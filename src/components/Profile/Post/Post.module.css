@@ -1,0 +1,21 @@
+.post {
+	color: blue;
+}
+
+.like {
+	position: relative;
+	color: red;
+	padding-left: 30px;
+}
+
+
+.like span {
+	position: absolute;
+	top: -5px;
+	left: 0px;
+}
+
+.post img {
+	width: 50px;
+	border-radius: 50%;
+}

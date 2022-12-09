@@ -1,0 +1,36 @@
+.dialogs {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	padding: 30px 0px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #E3E8EB;
+	background-color: #fff;
+	grid-gap: 10px;
+}
+
+.items {
+	padding-left: 30px;
+}
+
+.item {
+	margin-top: 10px;
+}
+
+.item a {
+font-size: 25px;
+text-decoration: none;
+color:black;
+}
+
+.item a:focus {
+	color: darkorange
+}
+
+.messages {
+	padding-left: 30px;
+	border-left: 1px solid #000;
+}
+
+.message {
+font-size: 20px;
+}
