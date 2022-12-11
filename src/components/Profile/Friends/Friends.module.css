@@ -1,0 +1,31 @@
+.wrapper {
+	display:flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-right: 10px;
+	padding: 15px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #E3E8EB;
+	background-color: #fff;
+	width: 120px;
+	height: 150px;
+}
+
+.icon img {
+	display: block;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;background-color: #fff;
+}
+
+.name {
+	font-size: 20px;
+	font-weight: 700;
+}

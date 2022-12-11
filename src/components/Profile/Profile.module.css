@@ -1,8 +1,19 @@
+h3 {
+	margin-top: 40px;
+}
+
+.wrapper {
+	position: absolute;
+	width: 650px;
+	left: 350px;
+}
+
 .content {
 	padding: 30px;
 	border-radius: 15px;
 	box-shadow: 5px 5px 5px #E3E8EB;
 	background-color: #fff;
+	margin-top: 10px;
 }
 
 .wall {

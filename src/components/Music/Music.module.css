@@ -3,4 +3,7 @@
 	border-radius: 15px;
 	box-shadow: 5px 5px 5px #E3E8EB;
 	background-color: #fff;
+	position: absolute;
+	width: 650px;
+	left: 350px;
 }

@@ -6,6 +6,9 @@
 	box-shadow: 5px 5px 5px #E3E8EB;
 	background-color: #fff;
 	grid-gap: 10px;
+	position: absolute;
+	width: 650px;
+	left: 350px;
 }
 
 .items {
@@ -22,8 +25,8 @@ text-decoration: none;
 color:black;
 }
 
-.item a:focus {
-	color: darkorange
+.item a:active {
+	color: #00A4F7;
 }
 
 .messages {

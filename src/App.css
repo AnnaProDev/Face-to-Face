@@ -2,18 +2,18 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-#root {
+html {
 	background-color: #EDF2F6;
 }
 
 .container {
+	position: relative;
 	margin: 0 auto;
 	padding-top: 70px;
 	max-width: 1000px;
 	height: 100vh;
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-gap: 10px;
+	display: flex;
+	justify-content: space-between;
 	background-color: #EDF2F6;
 }
 
