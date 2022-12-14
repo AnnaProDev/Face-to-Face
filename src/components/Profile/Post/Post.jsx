@@ -8,10 +8,6 @@ const Post = (props) => {
 
   return (
     <div className={style.post}>
-      <form>
-        <input></input>
-        <button>Add post</button>
-      </form>
       <div className={style.item}>
 			{postsElements}
       </div>

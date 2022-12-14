@@ -6,7 +6,7 @@ const MyPost = (props) => {
     <div>
       <p> {props.message}</p>
       <p className={style.like}>
-        <span class="material-symbols-outlined">thumb_up</span>
+        <span className="material-symbols-outlined">thumb_up</span>
         {props.likesCount}
       </p>
     </div>

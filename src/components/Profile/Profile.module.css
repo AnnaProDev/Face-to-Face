@@ -8,6 +8,75 @@ h3 {
 	left: 350px;
 }
 
+.post_form {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	width: 620px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #E3E8EB;
+	background-color: #fff;
+	margin-top: 30px;
+	padding: 15px;
+	min-height: 60px;
+}
+
+.post_form span {
+	color: #00A4F7;
+	font-size: 30px;
+}
+
+
+.post_input {
+	box-sizing: border-box;
+	border: none;
+	box-sizing: border-box;
+	width: 500px;
+	font-size: 16px;
+	padding: 20px 15px 0px 15px;
+	resize: vertical;
+	height: 100%;
+}
+
+.post_input:focus{
+	outline: none;
+ }
+
+.post_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: #00A4F7;
+	width: 25px;
+	height: 25px;
+	border: none;
+	color: #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 25px;
+}
+
+.post_button::before {
+	content:"";
+	position: absolute;
+	display: block;
+	width: 12px;
+	height: 2px;
+	background-color: white;
+}
+.post_button::after {
+	content:"";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	display: block;
+	height: 12px;
+	width: 2px;
+	background-color: white;
+}
+
 .content {
 	padding: 30px;
 	border-radius: 15px;

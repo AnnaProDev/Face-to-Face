@@ -13,27 +13,27 @@ const Navbar = () => {
       <div className={style.link}>
         <NavLink to="/profile">
           {" "}
-          <span class="material-symbols-outlined">account_circle</span> Profile
+          <span className="material-symbols-outlined">account_circle</span> Profile
         </NavLink>
       </div>
       <div className={style.link}>
         <NavLink to="/messages">
-          <span class="material-symbols-outlined">mail</span>Messages
+          <span className="material-symbols-outlined">mail</span>Messages
         </NavLink>
       </div>
       <div className={style.link}>
         <NavLink to="/news">
-          <span class="material-symbols-outlined">feed</span> News
+          <span className="material-symbols-outlined">feed</span> News
         </NavLink>
       </div>
       <div className={style.link}>
         <NavLink to="/music">
-          <span class="material-symbols-outlined">music_note</span>Music
+          <span className="material-symbols-outlined">music_note</span>Music
         </NavLink>
       </div>
       <div className={style.link}>
         <NavLink to="/settings">
-		  <span class="material-symbols-outlined">tune</span>
+		  <span className="material-symbols-outlined">tune</span>
           Settings
         </NavLink>
       </div>

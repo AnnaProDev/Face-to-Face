@@ -1,3 +1,52 @@
+.wrapper {
+	position: absolute;
+	width: 650px;
+	left: 350px;
+}
+
+.message_form {
+	position: relative;
+	padding: 30px 20px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #E3E8EB;
+	background-color: #fff;
+	height: 120px;
+}
+
+.message_form span {
+	color: #fff;
+	font-size: 30px;
+}
+
+.message_input {
+	border: none;
+	box-sizing: border-box;
+	width: 610px;
+	height: 80px;
+	font-size: 16px;
+	padding: 5px 15px 0px 15px;
+	resize: none
+}
+.message_input:focus{
+	outline: none;
+}
+
+.message_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	right: 20px;
+	bottom: 15px;
+	background-color: #00A4F7;
+	width: 100px;
+	height: 50px;
+	border: none;
+	color: #fff;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
 .dialogs {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -6,9 +55,7 @@
 	box-shadow: 5px 5px 5px #E3E8EB;
 	background-color: #fff;
 	grid-gap: 10px;
-	position: absolute;
-	width: 650px;
-	left: 350px;
+	margin-top: 30px;
 }
 
 .items {
@@ -37,3 +84,4 @@ color:black;
 .message {
 font-size: 20px;
 }
+
