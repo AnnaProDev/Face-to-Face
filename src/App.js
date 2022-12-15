@@ -8,7 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 function App(props) {
-
+debugger
   return (
 	<BrowserRouter>
     <div className="container">
@@ -17,7 +17,7 @@ function App(props) {
 		<Routes>
 			<Route path="/profile" 
 			element={<Profile 
-			store ={props.store}/>}/>
+			store ={props.state.profilePage}/>}/>
 			<Route path="/messages" 
 			element={<Dialogs 
 			state={props.state.dialogsPage} 
