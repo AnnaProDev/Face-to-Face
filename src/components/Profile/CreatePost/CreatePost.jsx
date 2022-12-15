@@ -1,26 +1,23 @@
 import style from "../Profile.module.css"
 import React from "react";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state"
-
 
 const CreatePost = (props) => {
-		const newPostElement = React.createRef();
 
-		const addPost = () => {
-			props.dispatch(addPostActionCreator());
+		const onAddPost = () => {
+			props.addPost();
 		};
 
-		const onPostChange = () => {
-			const text = newPostElement.current.value;
-			let action = updateNewPostTextActionCreator(text);
-			props.dispatch(action);
+		const onPostChange = (event) => {
+			const text = event.target.value;
+			props.updateNewPostText(text);
+			event.preventDefault();
 		};
 
 		return (
 			<form className={style.post_form}>
 				<span className="material-symbols-outlined">account_circle</span>
-				<textarea value={props.profilePage.newPostText} onChange={onPostChange} ref={newPostElement} placeholder="What's on your mind..." type="text" className={style.post_input} />
-				<button onClick={addPost} className={style.post_button}></button>
+				<textarea value={props.newPostText} onChange={onPostChange} placeholder="What's on your mind..." type="text" className={style.post_input} />
+				<button onClick={onAddPost} className={style.post_button}></button>
 			</form>
 		);
 	}
