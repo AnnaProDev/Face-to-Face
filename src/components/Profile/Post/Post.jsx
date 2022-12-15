@@ -3,10 +3,8 @@ import MyPost from "./MyPost/MyPost";
 
 const Post = (props) => {
 
-	let state = props.store.getState().profilePage;
-
 	let postsElements = 
-	state.postsMessage.map(p => <MyPost message={p.text} id={p.id} likesCount={p.likesCount}/>);
+	props.postsMessage.map(p => <MyPost message={p.text} id={p.id} likesCount={p.likesCount}/>);
 
   return (
     <div className={style.post}>

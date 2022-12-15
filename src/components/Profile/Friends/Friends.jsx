@@ -9,9 +9,7 @@ const FriendsIcon = (props) => {
 
 const Friends = (props) => {
 
-	let state = props.store.getState().profilePage;
-
-	const friendName = state.friendsList.map (friend => <FriendsIcon 
+	const friendName = props.friendsList.map (friend => <FriendsIcon 
 		name = {friend.name} id = {friend.id} img = {friend.img}/>)
 
 	return (
