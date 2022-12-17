@@ -1,17 +1,14 @@
 import style from "../Profile.module.css"
-import React from "react";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer"
 
 const CreatePost = (props) => {
-
+debugger
 		const onAddPost = () => {
-			props.store.dispatch(addPostActionCreator());
+			props.AddPost();
 		};
 
 		const onPostChange = (event) => {
 			const text = event.target.value;
-			props.store.dispatch(updateNewPostTextActionCreator(text));
-			event.preventDefault();
+			props.PostChange(text);
 		};
 
 		return (
@@ -22,6 +19,5 @@ const CreatePost = (props) => {
 			</form>
 		);
 	}
-
 
 export default CreatePost;

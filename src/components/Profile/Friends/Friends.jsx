@@ -8,10 +8,8 @@ const FriendsIcon = (props) => {
 }
 
 const Friends = (props) => {
-	debugger
-	let state = props.store;
 
-	const friendName = state.friendsList.map (friend => <FriendsIcon 
+	const friendName = props.store.friendsList.map (friend => <FriendsIcon 
 		name = {friend.name} id = {friend.id} img = {friend.img}/>)
 
 	return (

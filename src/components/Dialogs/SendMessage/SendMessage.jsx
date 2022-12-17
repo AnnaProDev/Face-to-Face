@@ -1,18 +1,15 @@
 import style from "../Dialogs.module.css";
 
-
 const SendMessage = (props) => {
-
+	debugger
 	const addMessage = () => {
-		props.postMessage()
+		props.onAddMessage()
 	}
 
 	const onMessageChange = (event) => {
 		const text = event.target.value;
-		props.messageChange(text)
-		event.preventDefault();
+		props.MessageChange(text);
 	}
-
 
 return (
 		 <form className={style.message_form}>
@@ -20,7 +17,6 @@ return (
 		 <button onClick={addMessage} className={style.message_button}><span className="material-symbols-outlined">send</span></button>
 	  </form>
 )
-
 }
 
 export default SendMessage;

@@ -10,6 +10,7 @@ const Icon = () => {
 const Info = (props) => {
 
 	return ( 
+		
 	<div className={style.info}>
     <div className={style.icon}>
 		<Icon />

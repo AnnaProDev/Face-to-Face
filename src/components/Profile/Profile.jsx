@@ -3,16 +3,16 @@ import Info from "./Info/Info";
 import Post from "./Post/Post";
 import style from "./Profile.module.css"
 import React from "react";
-import CreatePost from "./CreatePost/CreatePost";
+import CreatePostContainer from "./CreatePost/CreatePostContainer";
 
 const Profile = (props) => {
-debugger
 
+const state = props.profilePage;
 
 	return (
 		<div className={style.wrapper}>
-		<Friends store={props.store}/>
-		<CreatePost store={props.store}/>
+		<Friends store={state}/>
+		<CreatePostContainer />
     <div className={style.content}>
       <img
         className={style.wall}
@@ -20,7 +20,7 @@ debugger
         src="https://skinali.photo-clip.ru/images/phocagallery/kategor-skinali/Raznoe/thumbs/phoca_thumb_l_skinali%202805.jpg"
       ></img>
       <Info />
-      <Post store={props.store}/>
+      <Post store={state}/>
     </div>
 	 </div>
   );
