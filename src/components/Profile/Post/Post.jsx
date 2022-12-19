@@ -7,7 +7,7 @@ const Post = (props) => {
 	let state = props.store;
 
 	let postsElements = 
-	state.postsMessage.map(p => <MyPost message={p.text} id={p.id} likesCount={p.likesCount}/>);
+	state.postsMessage.map(post => <MyPost key={post.id} message={post.text} id={post.id} likesCount={post.likesCount}/>);
 
   return (
     <div className={style.post}>

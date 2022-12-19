@@ -31,7 +31,12 @@ const Navbar = () => {
           <span className="material-symbols-outlined">music_note</span>Music
         </NavLink>
       </div>
-      <div className={style.link}>
+		<div className={style.link}>
+        <NavLink to="/users">
+		  <span className="material-symbols-outlined">group</span>FIND USERS
+        </NavLink>
+      </div>
+      <div className={style.settings}>
         <NavLink to="/settings">
 		  <span className="material-symbols-outlined">tune</span>
           Settings

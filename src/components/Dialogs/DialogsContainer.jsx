@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-
 const DialogsContainer = connect (mapStateToProps)(Dialogs);
 
 export default DialogsContainer;

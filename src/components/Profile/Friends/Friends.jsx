@@ -10,7 +10,7 @@ const FriendsIcon = (props) => {
 const Friends = (props) => {
 
 	const friendName = props.store.friendsList.map (friend => <FriendsIcon 
-		name = {friend.name} id = {friend.id} img = {friend.img}/>)
+		name = {friend.name} key={friend.id} id = {friend.id} img = {friend.img}/>)
 
 	return (
     <div>

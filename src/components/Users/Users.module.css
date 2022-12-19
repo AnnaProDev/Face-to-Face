@@ -1,0 +1,114 @@
+h4 {
+	font-size: 16px;
+	margin: 0;
+	line-height: 20px;
+	font-weight: 300;
+}
+
+.pages {
+	display: flex;
+	justify-content: space-around;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.activePage {
+	font-size: 20px;
+	font-weight: bold;
+	color: #00A4F7;
+}
+
+.users {
+	position: absolute;
+	width: 650px;
+	left: 350px;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #E3E8EB;
+	margin-bottom: 30px;
+	height: 160px;
+	margin-top: 20px;
+}
+
+.icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-right: 15px;
+	padding: 15px;
+	background-color: #fff;
+	width: 130px;
+	height: 130px;
+	border-radius: 15px;
+}
+
+.icon img {
+	display: block;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	background-color: #fff;
+}
+
+.button{
+	border: none;
+	border-radius: 25px;
+	background-color: #00A4F7;
+	padding: 8px 15px;
+	color: #fff;
+	font-size: 13px;
+	width: 86px;
+	height: 33px;
+	cursor: pointer;
+}
+
+.fbutton{
+	border: 1px solid #00A4F7;
+	border-radius: 25px;
+	background-color: #fff;
+	padding: 8px 15px;
+	color: #00A4F7;
+	font-size: 13px;
+	width: 86px;
+	height: 33px;
+	cursor: pointer;
+}
+
+.fbutton:hover {
+	border: none;
+	border-radius: 25px;
+	background-color: #00A4F7;
+	color: #fff;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 15px;
+	width: 100%;
+}
+
+.location{
+	display: flex;
+	flex-direction: column;
+	min-width: 100px;
+}
+
+.country {
+	font-weight: 700;
+	line-height: 30px;
+}
+
+.name {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
