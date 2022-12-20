@@ -2,7 +2,8 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW  = "UNFOLLOW";
 const SET_USERS  = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
-// const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS _FETCHING";
 
 const initialState = {
 	users: [
@@ -12,8 +13,9 @@ const initialState = {
 		// {id: 4, following: true, photoUser: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Luglga9J2R3Bxt_PsWZISUHQWODD6_ZTAJ5mIQgxYCAE-YbkY81faTqp-hSA_jVPTs&usqp=CAU", fullName: "Helen", status: "Clarity trumps persuasion", location: {city: "Deli", country: "India"}},
 	],
 	pageSize: 5,
-	totalUsersCount: 10,
+	totalUsersCount: 24,
 	currentPage: 1,
+	isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -24,7 +26,7 @@ const usersReducer = (state = initialState, action) => {
 				...state, 
 				users: state.users.map(user => {
 					if (user.id === action.userId) {
-						return {...user, following: true}
+						return {...user, followed: true}
 					}
 					return user
 				}),
@@ -34,7 +36,7 @@ const usersReducer = (state = initialState, action) => {
 				...state, 
 				users: state.users.map(user => {
 					if (user.id === action.userId) {
-						return {...user, following: false}
+						return {...user, followed: false}
 					}
 					return user
 				}),
@@ -45,18 +47,22 @@ const usersReducer = (state = initialState, action) => {
 		case SET_CURRENT_PAGE: {
 			return {...state, currentPage: action.currentPage}
 		}
-		// case SET_TOTAL_USERS_COUNT: {
-		// 	return {...state, totalUserCount: action.totalUserCount}
-		// }
+		case SET_TOTAL_USERS_COUNT: {
+			return {...state, totalUsersCount: action.totalUsersCount}
+		}
+		case TOGGLE_IS_FETCHING: {
+			return {...state, isFetching: action.isFetching}
+		}
 		default: 
 			return state;			
 	}
 };
 
-export const followAC = (userId) => ({type: FOLLOW, userId});
-export const unFollowAC = (userId) => ({type: UNFOLLOW, userId	});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setUsersPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-// export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
+export const follow = (userId) => ({type: FOLLOW, userId});
+export const unFollow = (userId) => ({type: UNFOLLOW, userId	});
+export const setUsers = (users) => ({type: SET_USERS, users});
+export const setUsersPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 
 export default usersReducer;

@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 const initialState = {
 		postsMessage: [
@@ -16,13 +17,11 @@ const initialState = {
 			{id: 4, name: "Maria", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Luglga9J2R3Bxt_PsWZISUHQWODD6_ZTAJ5mIQgxYCAE-YbkY81faTqp-hSA_jVPTs&usqp=CAU"},
 		],
 		newPostText: '',
-		
+		profile: null,		
 	};
 
 
 const profileReducer = (state = initialState, action) => {
-
-
 	switch (action.type) {
 		case ADD_POST: 
 			let newPost = {
@@ -35,22 +34,21 @@ const profileReducer = (state = initialState, action) => {
 				newPostText : "",
 				postsMessage : [...state.postsMessage, newPost], //Copy array postsMessage
 			}
-
 		case UPDATE_NEW_POST_TEXT: 
-			return {
-				...state,
-				newPostText : action.newText
-			  };
+			return {	...state, newPostText : action.newText};
+		case SET_USER_PROFILE:
+				return {...state, profile: action.profile};
 		default:
 			return state;
 	}
 };
 
 export const addPostActionCreator = () => ({type: ADD_POST});
-
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const updateNewPostTextActionCreator = (text) => ({
 		type: UPDATE_NEW_POST_TEXT,
 		newText: text,
 	});
+
 
 export default profileReducer;
