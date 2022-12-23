@@ -9,7 +9,7 @@ html {
 .container {
 	position: relative;
 	margin: 0 auto;
-	padding-top: 70px;
+	padding-top: 160px;
 	max-width: 1000px;
 	height: 100vh;
 	display: flex;

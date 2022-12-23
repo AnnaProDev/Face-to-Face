@@ -1,0 +1,21 @@
+h2 {
+	color: #00A4F7;
+	text-decoration: none;
+	text-align: left;
+	float: right;
+}
+
+.wrapper {
+	position: absolute;
+	width: 620px;
+	height: 70px;
+	left: 350px;
+	top: 30px;
+	padding: 15px;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #E3E8EB;
+	background-color: #fff;
+	/* display: flex;
+	justify-content: flex-end; */
+}
+
