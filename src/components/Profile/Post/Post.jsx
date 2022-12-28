@@ -2,7 +2,6 @@ import style from "./Post.module.css";
 import MyPost from "./MyPost/MyPost";
 
 const Post = (props) => {
-	debugger
 
 	let state = props.store;
 

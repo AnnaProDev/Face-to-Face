@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-	debugger
+
 	return {
 		AddPost: () => {
 			dispatch(addPostActionCreator())

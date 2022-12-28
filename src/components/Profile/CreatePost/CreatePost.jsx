@@ -1,7 +1,7 @@
 import style from "../Profile.module.css"
 
 const CreatePost = (props) => {
-debugger
+
 		const onAddPost = () => {
 			props.AddPost();
 		};
