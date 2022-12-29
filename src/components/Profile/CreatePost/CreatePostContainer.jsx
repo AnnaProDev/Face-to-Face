@@ -1,6 +1,7 @@
 import { updateNewPostTextActionCreator, addPostActionCreator } from "../../../redux/profile-reducer";
 import { connect } from "react-redux";
 import CreatePost from "./CreatePost";
+import { compose } from "redux";
 
 
 const mapStateToProps = (state) => {
@@ -22,6 +23,6 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-const CreatePostContainer = connect (mapStateToProps, mapDispatchToProps)(CreatePost);
-
-export default CreatePostContainer;
+export default compose(
+	connect (mapStateToProps, mapDispatchToProps)
+) (CreatePost);

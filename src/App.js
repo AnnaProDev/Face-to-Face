@@ -8,6 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginPage from "./components/Login/Login";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
 		<Route path="/profile" element={<ProfileContainer />}>
         <Route path=":userId" element={<ProfileContainer />} />
       </Route>
+			<Route path="/login" element={<LoginPage />}/>	
 			<Route path="/messages" element={<DialogsContainer />}/>	
 			<Route path="/news" element={<News />}/>
 			<Route path="/music" element={<Music />}/>
