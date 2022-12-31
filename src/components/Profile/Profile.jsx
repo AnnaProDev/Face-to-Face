@@ -10,7 +10,7 @@ const Profile = (props) => {
 	return (
 		<div className={style.wrapper}>
 		<Friends store={props.profilePage}/>
-      <Info profile={props.profile}/>
+      <Info profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
 		<CreatePostContainer />
       <Post store={props.profilePage}/>
 	 </div>

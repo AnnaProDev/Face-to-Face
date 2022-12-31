@@ -1,8 +1,9 @@
-import { usersAPI } from "../API/api";
+import { profileAPI} from "../API/api";
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_USER_STATUS = "SET_USER_STATUS";
 
 const initialState = {
 		postsMessage: [
@@ -18,8 +19,9 @@ const initialState = {
 			{id: 3, name: "Olga", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwsUeMCO-OWwtei37A6FYy6QFCb1m_2XD5EiACkcJaBjk7_Du5owYUs7nwDI2KOpGAEw4&usqp=CAU"},
 			{id: 4, name: "Maria", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Luglga9J2R3Bxt_PsWZISUHQWODD6_ZTAJ5mIQgxYCAE-YbkY81faTqp-hSA_jVPTs&usqp=CAU"},
 		],
-		newPostText: '',
-		profile: null,		
+		newPostText: "",
+		profile: null,
+		status: "",		
 	};
 
 
@@ -40,6 +42,8 @@ const profileReducer = (state = initialState, action) => {
 			return {	...state, newPostText : action.newText};
 		case SET_USER_PROFILE:
 				return {...state, profile: action.profile};
+		case SET_USER_STATUS:
+			return {...state, status: action.status};
 		default:
 			return state;
 	}
@@ -47,11 +51,27 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setStatus= (status) => ({type: SET_USER_STATUS, status});
+
 export const getUserProfile = (userId) => (dispatch) => {
-	usersAPI.getProfile(userId).then(response => {
+	profileAPI.getProfile(userId).then(response => {
 		dispatch(setUserProfile(response.data));
 	});
 };
+export const getStatus = (userId) => (dispatch) => {
+	profileAPI.getStatus(userId).then(response => {
+		dispatch(setStatus(response.data));
+	});
+};
+
+export const updateStatus = (status) => (dispatch) => {
+	profileAPI.updateStatus(status).then(response => {
+		if (response.data.resultCode === 0) {
+		dispatch(setStatus(status));
+		}
+	});
+};
+
 export const updateNewPostTextActionCreator = (text) => ({
 		type: UPDATE_NEW_POST_TEXT,
 		newText: text,
