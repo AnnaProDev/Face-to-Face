@@ -10,7 +10,7 @@
 	border-radius: 15px;
 	box-shadow: 5px 5px 5px #E3E8EB;
 	background-color: #fff;
-	height: 120px;
+	min-height: 150px;
 }
 
 .message_form span {
@@ -20,8 +20,9 @@
 
 .message_input {
 	border: none;
+	border-radius: 15px;
 	box-sizing: border-box;
-	width: 610px;
+	width: 605px;
 	height: 80px;
 	font-size: 16px;
 	padding: 5px 15px 0px 15px;
@@ -36,8 +37,8 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
+	margin-top: 10px;
 	right: 20px;
-	bottom: 15px;
 	background-color: #00A4F7;
 	width: 100px;
 	height: 50px;

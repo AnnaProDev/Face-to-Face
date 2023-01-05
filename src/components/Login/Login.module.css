@@ -1,7 +1,8 @@
 .login {
+	display: block;
 	box-sizing: border-box;
 	position: absolute;
-	padding: 15px;
+	padding: 20px;
 	width: 650px;
 	left: 350px;
 	background-color: #fff;
@@ -9,3 +10,51 @@
 	box-shadow: 5px 5px 5px #E3E8EB;
 	margin-bottom: 30px;
 }
+
+.input {
+	padding-right: 20px;
+}
+
+.input .error {
+	border: 1px solid crimson;
+	margin-right: 10px;
+}
+
+.input input{
+	font-size: 16px;
+	height: 30px;
+	padding: 10px;
+	border-radius: 15px;
+	border: 1px solid #6B757D;
+	width: 100%;
+}
+
+.checkbox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 10px;
+	cursor: pointer;
+	width: 110px;
+	font-size: 13px;
+}
+
+button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	margin-bottom: 15px;
+	background-color: #00A4F7;
+	border: none;
+	color: #fff;
+	border-radius: 15px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: #0091DB;
+}
+

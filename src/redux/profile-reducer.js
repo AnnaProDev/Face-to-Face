@@ -1,7 +1,6 @@
 import { profileAPI} from "../API/api";
 
 const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_USER_STATUS = "SET_USER_STATUS";
 
@@ -19,7 +18,6 @@ const initialState = {
 			{id: 3, name: "Olga", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwsUeMCO-OWwtei37A6FYy6QFCb1m_2XD5EiACkcJaBjk7_Du5owYUs7nwDI2KOpGAEw4&usqp=CAU"},
 			{id: 4, name: "Maria", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Luglga9J2R3Bxt_PsWZISUHQWODD6_ZTAJ5mIQgxYCAE-YbkY81faTqp-hSA_jVPTs&usqp=CAU"},
 		],
-		newPostText: "",
 		profile: null,
 		status: "",		
 	};
@@ -30,16 +28,13 @@ const profileReducer = (state = initialState, action) => {
 		case ADD_POST: 
 			let newPost = {
 				id: 6,
-				text: state.newPostText,
+				text: action.newPostText,
 				likesCount: 0,
 			};
 			return {
 				...state,
-				newPostText : "",
 				postsMessage : [...state.postsMessage, newPost], //Copy array postsMessage
 			}
-		case UPDATE_NEW_POST_TEXT: 
-			return {	...state, newPostText : action.newText};
 		case SET_USER_PROFILE:
 				return {...state, profile: action.profile};
 		case SET_USER_STATUS:
@@ -49,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
 	}
 };
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus= (status) => ({type: SET_USER_STATUS, status});
 
@@ -71,11 +66,5 @@ export const updateStatus = (status) => (dispatch) => {
 		}
 	});
 };
-
-export const updateNewPostTextActionCreator = (text) => ({
-		type: UPDATE_NEW_POST_TEXT,
-		newText: text,
-	});
-
 
 export default profileReducer;

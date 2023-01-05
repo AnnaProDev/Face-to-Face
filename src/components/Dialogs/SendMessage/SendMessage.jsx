@@ -1,24 +1,38 @@
+import { Field, reduxForm } from "redux-form";
 import style from "../Dialogs.module.css";
+import { Textarea } from "../../common/FormsControls/FormsControls";
+import { required, maxLength } from "../../../utils/validators";
 
 const SendMessage = (props) => {
-	debugger
-	const addMessage = () => {
-		props.onAddMessage()
+	const addNewMessage = (values) => {
+		props.onAddMessage(values.newMessageBody)
 	}
+	return <AddMessageFormRedux onSubmit={addNewMessage}/>
+};
 
-	const onMessageChange = (event) => {
-		const text = event.target.value;
-		props.MessageChange(text);
-	}
+const maxLength50 = maxLength(50)
 
-return (
-		 <form className={style.message_form}>
-		 <textarea value={props.newMessageText} onChange={onMessageChange} placeholder="Text here..." type="text" className={style.message_input}></textarea>
-		 <button onClick={addMessage} className={style.message_button}><span className="material-symbols-outlined">send</span></button>
-	  </form>
-)
-}
+const AddMessageForm = (props) => {
+
+  return (
+    <form className={style.message_form} onSubmit={props.handleSubmit}>
+      <Field
+        component={Textarea}
+        name={"newMessageBody"}
+        type={"text"}
+        placeholder="Text here..."
+		  validate={[required, maxLength50]}
+        className={style.message_input}
+      />
+      <button className={style.message_button}>
+        <span className="material-symbols-outlined">send</span>
+      </button>
+    </form>
+  );
+};
+
+const AddMessageFormRedux = reduxForm({ form: "dialogSendMessageForm" })(
+  AddMessageForm
+);
 
 export default SendMessage;
-
-

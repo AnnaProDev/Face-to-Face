@@ -1,0 +1,19 @@
+.error {
+	/* border: 1px solid crimson; */
+	border-radius: 15px;
+}
+
+.error textarea {
+	margin-right: 10px;
+}
+
+.error input {
+	border: 1px solid crimson;
+	margin-right: 10px;
+}
+
+h5 {
+	color: crimson;
+	margin: 0 10px 10px 20px;
+	margin-block-start: 0em;
+}
