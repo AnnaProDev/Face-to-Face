@@ -1,7 +1,5 @@
 import React from "react";
 import style from "../Info/Info.module.css"
-
-
 class InfoStatus extends React.Component {
 
 	state = {

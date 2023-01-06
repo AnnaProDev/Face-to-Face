@@ -1,8 +1,8 @@
+.wrapper a,
 h2 {
 	color: #00A4F7;
 	text-decoration: none;
 	text-align: left;
-	float: right;
 }
 
 .wrapper {
@@ -15,7 +15,16 @@ h2 {
 	border-radius: 15px;
 	box-shadow: 5px 5px 5px #E3E8EB;
 	background-color: #fff;
-	/* display: flex;
-	justify-content: flex-end; */
+}
+
+.btn {
+	width: 100px;
+	margin: 0;
+}
+
+.login {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 

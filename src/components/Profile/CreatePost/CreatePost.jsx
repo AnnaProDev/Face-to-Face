@@ -8,15 +8,13 @@ const CreatePost = (props) => {
 const addNewPost = (values) => {
 	props.AddPost(values.newPostText)
 }
-
   return <CreatePostFormRedux onSubmit={addNewPost}/>;
 };
 
 
+const maxLength10 = maxLength(10);
 
 const CreatePostForm = (props) => {
-
-	const maxLength10 = maxLength(10);
 
 	return <form className={style.post_form} onSubmit={props.handleSubmit}>
     <span className="material-symbols-outlined">account_circle</span>
