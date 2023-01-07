@@ -45,7 +45,7 @@ button {
 	align-items: center;
 	height: 50px;
 	width: 100%;
-	margin-bottom: 15px;
+	margin: 15px 0;
 	background-color: #00A4F7;
 	border: none;
 	color: #fff;
@@ -58,3 +58,8 @@ button:hover {
 	background-color: #0091DB;
 }
 
+.form_error {
+	padding: 5px;
+	width: 100%;
+	color: crimson;
+}
