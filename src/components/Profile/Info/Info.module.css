@@ -17,11 +17,12 @@ h3 {
 }
 
 .photos {
-	width: 300px;
+	height: 300px;
 }
 
 .photos img {
 	border-radius: 8px;
+	height: 100%;
 }
 
 .text {

@@ -21,11 +21,11 @@ const Navbar = () => {
           <span className="material-symbols-outlined">mail</span>Messages
         </NavLink>
       </div>
-      <div className={style.link}>
+      {/* <div className={style.link}>
         <NavLink to="/news">
           <span className="material-symbols-outlined">feed</span> News
         </NavLink>
-      </div>
+      </div> */}
       {/* <div className={style.link}>
         <NavLink to="/music">
           <span className="material-symbols-outlined">music_note</span>Music

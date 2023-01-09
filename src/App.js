@@ -8,11 +8,22 @@ import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
+import React from "react";
+import { initializeApp } from "./redux/app-reducer";
+import { connect } from "react-redux";
+import Preloader from "./components/common/Preloader/Preloader";
+class App extends React.Component {
 
-function App() {
+	componentDidMount() {
+		this.props.initializeApp();
+	}
+
+	render() {
+		if (!this.props.initialized) {
+		return <Preloader /> 
+	}
 
   return (
-
     <div className="container">
 	 	<HeaderContainer />
       <Navbar />
@@ -29,8 +40,12 @@ function App() {
 		</Routes>
       </div>
     </div>
-
   );
 }
+};
 
-export default App;
+const mapStateToProps = (state) => ({
+	initialized: state.app.initialized,
+});
+
+export default connect(mapStateToProps, {initializeApp})(App);

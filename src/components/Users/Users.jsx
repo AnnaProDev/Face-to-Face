@@ -39,8 +39,8 @@ class Users extends React.Component{
                 <h4>{user.status}</h4>
               </div>
               <div className={style.location}>
-                <h4>{"Washington"},</h4>
-                <h4 className={style.country}>{"USA"}</h4>
+                <h4>{"City"},</h4>
+                <h4 className={style.country}>{"Country"}</h4>
               </div>
             </div>
           </div>
