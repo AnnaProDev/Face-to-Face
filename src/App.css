@@ -17,4 +17,8 @@ html {
 	background-color: #EDF2F6;
 }
 
+:focus, :active {
+	outline: none;
+}
+
 

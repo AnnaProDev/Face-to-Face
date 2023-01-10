@@ -3,7 +3,7 @@ import style from "./Users.module.css"
 import userIcon from "../../img/user_icon.png"
 import { NavLink } from "react-router-dom";
 class Users extends React.Component{
-
+ debugger
 	render() {
 		const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
 
@@ -16,7 +16,7 @@ class Users extends React.Component{
       <div className={style.users}>
         <div className={style.pages}>
           {pages.map((page) => {
-            return (<span className={this.props.setUsersPage === page ? style.activePage : page}
+            return (<span className={this.props.setUsersPage === page ? style.active_page : page}
             onClick={(e) => {this.props.onPageChanged(page)}}>{page}</span>)})}
         </div>
         {this.props.users.map((user) => (

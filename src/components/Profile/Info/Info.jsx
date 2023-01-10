@@ -1,7 +1,7 @@
 import style from "./Info.module.css";
 import Preloader from "../../common/Preloader/Preloader"
-import InfoStatus from "./InfoStatus";
 import user_photo  from "./../../../img/user_icon.png"
+import InfoStatusWithHooks from "./InfoStatusWithHooks";
 
 const Info = (props) => {
 
@@ -40,8 +40,9 @@ const Info = (props) => {
           </div>
           <div>{props.profile.lookingForAJobDescription || "I'm passionate about my business"}</div>
         </div>
-			<InfoStatus status={props.status || "Just keep swimming"} updateStatus={props.updateStatus}/>
+			<InfoStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
       </div>
+		<span className={style.status_label}>Click to edit</span>
     </div>
   );
 }

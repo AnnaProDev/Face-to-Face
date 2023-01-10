@@ -41,7 +41,7 @@ h3 {
 
 .status span {
 	position: absolute;
-	right: 90px
+	right: 90px;
 }
 
 .info {
@@ -54,12 +54,27 @@ h3 {
 }
 
 .mystatus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-top: 20px;
-	height: 70px;
+	height: 40px;
+	border: 1px solid #6B757D;
+	background-color: #EDF2F6;
+	border-radius: 15px;
+	min-width: 300px;
 }
 
 input {
-	margin: 20px 0;
+	margin: 10px 0;
 	font-size: 20px;
-	height: 20px;
+	line-height: 30px;
+	border: none;
+	background-color: #EDF2F6;
+}
+
+.status_label {
+	color: #6B757D;
+	margin-left: 15px;
+	font-size: 12px;
 }
