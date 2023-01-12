@@ -11,18 +11,6 @@ h4 {
 	z-index: 2;
 }
 
-.pages {
-	display: flex;
-	justify-content: space-around;
-	cursor: pointer;
-	font-size: 18px;
-}
-.active_page {
-	font-size: 20px;
-	font-weight: bold;
-	color: #00A4F7;
-}
-
 .users {
 	position: absolute;
 	width: 650px;

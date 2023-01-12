@@ -1,50 +1,26 @@
 import React from "react"
 import style from "./Users.module.css"
-import userIcon from "../../img/user_icon.png"
-import { NavLink } from "react-router-dom";
-class Users extends React.Component{
- debugger
-	render() {
-		const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+import Paginator from "../common/Paginator/Paginator";
+import User from "./User";
 
-		const pages = [];
-		for (let i=1; i <= pagesCount; i++ ) {
-			pages.push(i);
-		}
+class Users extends React.Component{
+
+	render() {
 
 		return (
+			
       <div className={style.users}>
-        <div className={style.pages}>
-          {pages.map((page) => {
-            return (<span className={this.props.setUsersPage === page ? style.active_page : page}
-            onClick={(e) => {this.props.onPageChanged(page)}}>{page}</span>)})}
-        </div>
-        {this.props.users.map((user) => (
-          <div className={style.wrapper} key={user.id}>
-            <div className={style.icon}>
-              <NavLink to={"/profile/" + user.id}>
-                <img src={user.photos.small != null ? user.photos.small : userIcon} alt="user-img"/>
-              </NavLink>
-              {user.followed 
-				  	? <button className={style.button} disabled = {this.props.followingInProgress
-					.some(id => id === user.id)} onClick={() => {this.props.unFollow(user.id)}}>
-                  Following </button>
-					: <button className={style.fbutton} disabled = {this.props.followingInProgress
-					.some(id => id === user.id)} onClick={() => {this.props.follow(user.id)}}>
-                  + Follow </button>}
-            </div>
-            <div className={style.info}>
-              <div className={style.status}>
-                <div className={style.name}>{user.name}</div>
-                <h4>{user.status}</h4>
-              </div>
-              <div className={style.location}>
-                <h4>{"City"},</h4>
-                <h4 className={style.country}>{"Country"}</h4>
-              </div>
-            </div>
-          </div>
-        ))}
+			<Paginator 
+				currentPage={this.props.currentPage}
+				onPageChanged={this.props.onPageChanged}
+				totalUsersCount={this.props.totalUsersCount}
+				pageSize={this.props.pageSize}
+			/>
+			<User users = {this.props.users}
+				followingInProgress = {this.props.followingInProgress}
+				unFollow = {this.props.unFollow}
+				follow = {this.props.follow}
+			/>
       </div>
     );
 	}

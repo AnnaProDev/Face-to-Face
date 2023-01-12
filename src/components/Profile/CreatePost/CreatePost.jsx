@@ -1,6 +1,5 @@
 import { Field, reduxForm } from "redux-form";
 import style from "../Profile.module.css";
-import { required, maxLength } from "../../../utils/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const CreatePost = (props) => {
@@ -12,8 +11,6 @@ const addNewPost = (values) => {
 };
 
 
-const maxLength10 = maxLength(10);
-
 const CreatePostForm = (props) => {
 
 	return <form className={style.post_form} onSubmit={props.handleSubmit}>
@@ -23,7 +20,6 @@ const CreatePostForm = (props) => {
 		name={"newPostText"}
       placeholder="What's on your mind..."
       type="text"
-		validate={[required, maxLength10]}
       className={style.post_input}
     />
     <button className={style.post_button}></button>

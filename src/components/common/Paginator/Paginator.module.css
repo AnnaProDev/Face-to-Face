@@ -1,0 +1,19 @@
+.pages {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	cursor: pointer;
+	font-size: 20px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.pages span {
+	height: 40px;
+	width: 40px;
+}
+.active_page {
+	color: #00A4F7;
+	border: 1px solid #00A4F7;
+	border-radius: 15px;
+}
