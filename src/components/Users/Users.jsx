@@ -6,15 +6,15 @@ import User from "./User";
 class Users extends React.Component{
 
 	render() {
-
+		console.log(this.props);
 		return (
 			
       <div className={style.users}>
 			<Paginator 
-				currentPage={this.props.currentPage}
-				onPageChanged={this.props.onPageChanged}
-				totalUsersCount={this.props.totalUsersCount}
-				pageSize={this.props.pageSize}
+				currentPage = {this.props.currentPage}
+				onPageChanged = {this.props.onPageChanged}
+				totalItemsCount = {this.props.totalItemsCount}
+				pageSize = {this.props.pageSize}
 			/>
 			<User users = {this.props.users}
 				followingInProgress = {this.props.followingInProgress}

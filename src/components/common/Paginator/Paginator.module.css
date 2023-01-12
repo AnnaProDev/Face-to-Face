@@ -17,3 +17,17 @@
 	border: 1px solid #00A4F7;
 	border-radius: 15px;
 }
+
+.nav {
+	position: relative;
+	height: 35px;
+	width: 50px;
+}
+
+.nav span {
+	position: absolute;
+	margin: 0;
+	top: 50%;
+	line-height: 0;
+	font-size: 18px;
+}
