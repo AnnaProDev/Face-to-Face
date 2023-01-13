@@ -2,8 +2,8 @@
 - Social network
 - It is big project with React and Redux
 
-Sending weekly emails to the users who have signed up for the newsletter to send them news and updates on new tools and technologies
-Using Mailchimp services to store and manage the emails of the users along with other details
+Use the social network "Face-to-Face" to maintain contact with friends.
+Find and subscribe to other users.
 
 <h2>Tools Used</h2>
 Used HTML5, React.js, Redux.js and JavaScript to develop the page
