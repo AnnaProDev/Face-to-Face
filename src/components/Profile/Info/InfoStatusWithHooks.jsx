@@ -26,7 +26,7 @@ const InfoStatusWithHooks = (props) => {
     <div className={style.mystatus}>
       {!editMode && (
         <div>
-          <h3 onDoubleClick={activateEditMode}>
+          <h3 onClick={activateEditMode}>
             {props.status || "Just keep swimming"}
           </h3>
         </div>

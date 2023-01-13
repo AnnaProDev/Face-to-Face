@@ -23,10 +23,10 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
 			 .filter(page => page >= leftPortionPageNumber &&  page <= rightPortionPageNumber)
 			 .map((page) => {
             return (<span className={currentPage === page ? style.active_page : pages}
-            onClick={(e) => {onPageChanged(page)}}>	{page} </span>)})}
+				key={page} onClick={(e) => {onPageChanged(page)}}>{page}</span>)})}
 				{portionCount > portionNumber && 
 				<button className={style.nav} onClick={() => { setPortionNumber(portionNumber + 1) }}>
-				<span class="material-symbols-outlined">arrow_forward_ios</span></button>}
+				<span className="material-symbols-outlined">arrow_forward_ios</span></button>}
         </div>
 } 
 

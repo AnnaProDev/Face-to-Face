@@ -1,17 +1,18 @@
 import { Route, Routes} from "react-router-dom"
 import "./App.css"
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import ProfileContainer from './components/Profile/ProfileContainer';
 import Navbar from './components/Navbar/Navbar';
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
-import React from "react";
+import React, { Suspense } from "react";
 import { initializeApp } from "./redux/app-reducer";
 import { connect } from "react-redux";
 import Preloader from "./components/common/Preloader/Preloader";
+
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
 class App extends React.Component {
 
@@ -29,6 +30,7 @@ class App extends React.Component {
 	 	<HeaderContainer />
       <Navbar />
       <div className="container_content">
+		<Suspense fallback={<div><Preloader/></div>}>
 		<Routes>
 		<Route path="/profile" element={<ProfileContainer />}>
         <Route path=":userId" element={<ProfileContainer />} />
@@ -39,6 +41,7 @@ class App extends React.Component {
 			<Route path="/users" element={<UsersContainer />}/>
 			<Route path="/settings" element={<Settings />}/>
 		</Routes>
+		</Suspense>
       </div>
     </div>
   );

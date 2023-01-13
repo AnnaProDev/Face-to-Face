@@ -4,8 +4,6 @@ import React from "react";
 
 const Post = (props) => {
 
-	console.log("render");
-
 	let postsElements = 
 	props.store.postsMessage.map(post => <MyPost key={post.id} message={post.text} id={post.id} likesCount={post.likesCount}/>);
 
