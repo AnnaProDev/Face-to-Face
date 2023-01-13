@@ -36,12 +36,12 @@ const Navbar = () => {
 		  <span className="material-symbols-outlined">group</span>FIND USERS
         </NavLink>
       </div>
-      <div className={style.settings}>
+      {/* <div className={style.settings}>
         <NavLink to="/settings">
 		  <span className="material-symbols-outlined">tune</span>
           Settings
-        </NavLink>
-      </div>
+        </NavLink> */}
+      {/* </div> */}
     </nav>
   );
 }

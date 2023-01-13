@@ -21,6 +21,7 @@
 }
 
 .input input{
+	margin-top: 30px;
 	font-size: 16px;
 	height: 30px;
 	padding: 10px;
@@ -37,6 +38,7 @@
 	cursor: pointer;
 	width: 110px;
 	font-size: 13px;
+	margin-top: 30px;
 }
 
 button {

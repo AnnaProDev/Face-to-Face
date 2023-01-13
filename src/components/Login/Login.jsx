@@ -50,6 +50,9 @@ const Login = ({login, isAuth}) =>{
 
 	return <div className={style.login}>
 	<h1>Log In</h1>
+	<p>For testing social network use the following email and password:</p>
+	<p style={{fontWeight:"bold"}}>Email: free@samuraijs.com</p>
+	<p style={{fontWeight:"bold"}}>Password: free</p>
 		<LoginReduxForm onSubmit={onSubmit} />
 	</div>
 }

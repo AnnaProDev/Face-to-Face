@@ -5,12 +5,6 @@ h4 {
 	font-weight: 300;
 }
 
-.preloader {
-	position: absolute;
-	left: 60%;
-	z-index: 2;
-}
-
 .users {
 	position: absolute;
 	width: 650px;
