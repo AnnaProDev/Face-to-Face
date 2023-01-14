@@ -17,12 +17,46 @@ h3 {
 }
 
 .photos {
+	display: inline-block;
 	height: 300px;
+	background-color: #fff;
 }
 
 .photos img {
 	border-radius: 8px;
 	height: 100%;
+	background-color: #fff;
+}
+
+.photos input {
+	display: none;
+	height: 30px;
+	font-size: 12px;
+	margin: 0;
+}
+
+label.input_file {
+	display: block;
+	text-align: center;
+	width: 240px;
+	font-size: 13px;
+	color: #fff;
+	background-color: #00A4F7;
+	padding: 10px;
+	margin: 0 auto;
+	height: 14px;
+	line-height: 14px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
 }
 
 .text {
@@ -32,7 +66,7 @@ h3 {
 	justify-content: space-between;
 	padding: 15px;
 	text-align: center;
-	width: 290px;
+	width: 270px;
 	text-transform: capitalize;
 	height: 200px;
 	font-size: 16px;
@@ -57,7 +91,7 @@ h3 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
+	margin-top: 70px;
 	height: 40px;
 	border: 1px solid #6B757D;
 	background-color: #EDF2F6;

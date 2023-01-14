@@ -3,18 +3,30 @@ import Preloader from "../../common/Preloader/Preloader"
 import user_photo  from "./../../../img/user_icon.png"
 import InfoStatusWithHooks from "./InfoStatusWithHooks";
 
-const Info = ({profile, status, updateStatus}) => {
+const Info = ({profile, status, updateStatus, isOwner, savePhoto }) => {
 
 
 	if (!profile) {
 		return <Preloader />
 	}
+
+	// const onMainPhotoSelected = (even) => {
+	// 	console.log(even.target);
+	// 	if (even.target.file.length > 0) {
+	// 		savePhoto(even.target.file[0])
+	// 	};
+	// }
 	
 	return (
     <div className={style.info}>
       <div className={style.profile}>
         <div className={style.photos}>
-          <img alt="photoUser" src={profile.photos.large || user_photo}></img>
+          <img alt="photoUser" src={profile.photos.large || user_photo} />
+			 { isOwner && 
+			 <label className={style.input_file}>
+			 <input type={"file"} onChange ={(e)=>{ savePhoto(e.target.files[0]) }}/>
+			 Choose the file for upload new photo 
+			 </label> }
         </div>
         <div className={style.text}>
           <div>

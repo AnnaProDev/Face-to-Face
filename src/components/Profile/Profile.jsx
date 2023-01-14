@@ -10,7 +10,11 @@ const Profile = (props) => {
 	return (
 		<div className={style.wrapper}>
 		<Friends store={props.profilePage}/>
-      <Info profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+      <Info savePhoto={props.savePhoto} 
+		isOwner={props.isOwner} 
+		profile={props.profile} 
+		status={props.status} 
+		updateStatus={props.updateStatus}/>
 		<CreatePostContainer />
       <Post store={props.profilePage}/>
 	 </div>
