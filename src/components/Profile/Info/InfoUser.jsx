@@ -10,14 +10,14 @@ export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div className={style.profile}>
       <div className={style.text}>
-        {isOwner && <button className={style.text_button} onClick={goToEditMode}>Edit profile</button>}
         <div className={style.text_wrapper}>
 		  <span className="material-symbols-outlined">person</span>
-      	<h3>{profile.fullName}</h3>
+      	<h3 className={style.name}>{profile.fullName}</h3>
         </div>
         <div className={style.text_wrapper}>
 		  <span className="material-symbols-outlined">badge</span>
-		  {profile.aboutMe || "I'm Front-End Developer"}</div>
+		  <div>{profile.aboutMe || "I'm Front-End Developer"}</div>
+		  </div>
         <div className={style.text_wrapper}>
 		  <span class="material-symbols-outlined">work</span>
           <div>Open for work:</div>
@@ -35,7 +35,7 @@ export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
         </div>
         <div className={style.text_wrapper}> 
 		  <span className="material-symbols-outlined">computer</span>
-		  <span> My skills: </span>
+		  <div> My skills: </div>
           {profile.lookingForAJobDescription ||
             "JavaScript, React.JS"}
         </div>
@@ -51,6 +51,7 @@ export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
             );
           })}
         </div> */}
+		  {isOwner && <button className={style.text_button} onClick={goToEditMode}>Edit profile</button>}
       </div>
     </div>
   );
@@ -60,7 +61,6 @@ export const InfoUserForm = ({ handleSubmit, profile, error }) => {
   return (
     <form onSubmit={handleSubmit} className={style.profile}>
       <div className={style.text}>
-        <button className={style.text_button}>Save</button>
         {error && <div className={style.form_error}>{error}</div>}
         <div>
           <div className={style.text_wrapper}>
@@ -74,7 +74,7 @@ export const InfoUserForm = ({ handleSubmit, profile, error }) => {
 		  </div>
         <div className={style.text_wrapper}>
 		  <span class="material-symbols-outlined">work</span>
-          Open for work:
+          <div>Open for work:</div>
           {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
         </div>
         <div className={style.text_wrapper}> 
@@ -86,6 +86,7 @@ export const InfoUserForm = ({ handleSubmit, profile, error }) => {
             Textarea
           )}
         </div>
+
         {/* <div>
           Contacts:{" "}
           {Object.keys(profile.contacts).map((key) => {
@@ -95,7 +96,8 @@ export const InfoUserForm = ({ handleSubmit, profile, error }) => {
               </div>
             );
           })}
-        </div> */}
+        </div> */}		 
+		   <button className={style.text_button}>Save</button>
       </div>
     </form>
   );
