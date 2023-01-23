@@ -1,0 +1,14 @@
+.error_page {
+	display: block;
+	box-sizing: border-box;
+	position: absolute;
+	padding: 20px;
+	width: 650px;
+	left: 350px;
+	border-radius: 15px;
+	margin-bottom: 30px;
+}
+
+.error_page img {
+	width: 100%;
+}

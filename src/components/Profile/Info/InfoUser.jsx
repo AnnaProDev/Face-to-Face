@@ -19,7 +19,7 @@ export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
 		  <div>{profile.aboutMe || "I'm Front-End Developer"}</div>
 		  </div>
         <div className={style.text_wrapper}>
-		  <span class="material-symbols-outlined">work</span>
+		  <span className="material-symbols-outlined">work</span>
           <div>Open for work:</div>
           {profile.lookingForAJob ? (
             <span

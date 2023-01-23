@@ -1,4 +1,4 @@
-import { Route, Routes} from "react-router-dom"
+import { Navigate, Route, Routes} from "react-router-dom"
 import "./App.css"
 import Navbar from './components/Navbar/Navbar';
 import News from "./components/News/News";
@@ -9,15 +9,26 @@ import React, { Suspense } from "react";
 import { initializeApp } from "./redux/app-reducer";
 import { connect } from "react-redux";
 import Preloader from "./components/common/Preloader/Preloader";
+import Page404 from "./components/common/Page404/Page404";
 
+
+//
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
 class App extends React.Component {
 
+	catchAllUnhandledErrors = (reason, promise) => {
+		alert("Some error occurred");
+	}
 	componentDidMount() {
 		this.props.initializeApp();
+		window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
+	}
+
+	componentWillUnmount(){
+		window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
 	}
 
 	render() {
@@ -32,6 +43,7 @@ class App extends React.Component {
       <div className="container_content">
 		<Suspense fallback={<div><Preloader/></div>}>
 		<Routes>
+		<Route path="/" element={<Navigate to="/profile" />} />
 		<Route path="/profile" element={<ProfileContainer />}>
         <Route path=":userId" element={<ProfileContainer />} />
       </Route>
@@ -40,6 +52,7 @@ class App extends React.Component {
 			<Route path="/news" element={<News />}/>
 			<Route path="/users" element={<UsersContainer />}/>
 			<Route path="/settings" element={<Settings />}/>
+			<Route path="*" element={<Page404 />}/>
 		</Routes>
 		</Suspense>
       </div>
