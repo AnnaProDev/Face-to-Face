@@ -1,7 +1,7 @@
 import style from "./Info.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import user_photo from "./../../../../src/img/user_icon.png";
-import InfoStatusWithHooks from "./InfoStatusWithHooks";
+import InfoStatus from "./InfoStatus";
 import InfoUserReduxForm , { InfoUser } from "./InfoUser"
 import { useState } from "react";
 
@@ -35,9 +35,9 @@ const Info = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile })
 			{editMode ? 
 			<InfoUserReduxForm initialValues={profile} profile={profile} onSubmit={onSubmit}/> 
 			: <InfoUser goToEditMode={() => {setEditMode(true)}} profile={profile} isOwner={isOwner}/>}
-			<InfoStatusWithHooks status={status} updateStatus={updateStatus}/>
+			<InfoStatus status={status} updateStatus={updateStatus} isOwner={isOwner}/>
       </div>
-		<span className={style.status_label}>Click to edit</span>
+		{isOwner && <span className={style.status_label}>Click to edit</span>}
     </div>
   );
 }

@@ -5,7 +5,6 @@ import { required, maxLength } from "../../utils/validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
-import { createField } from "../common/FormsControls/FormsControls";
 
 const maxLength50 = maxLength(50)
 
@@ -32,7 +31,10 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) =>{
 		</div>
 		}
 		{captchaUrl && <img alt="captcha" src={captchaUrl} />}
-		{captchaUrl && createField("Symbols from image", "captcha", {required}, Input, {}) }
+		{captchaUrl && <Field placeholder="Symbols from image" 
+			name={"captcha"} 
+			component={Input} 
+			validate={[required]}/>}
 		<div className={style.button}>
 			<button>LOG IN</button>
 		</div>
@@ -46,7 +48,6 @@ const Login = ({login, isAuth, captchaUrl}) =>{
 	const onSubmit = (formData) => {
 		login(formData.email, formData.password, formData.rememberMe, formData.captcha)
 	}
-
 	if (isAuth) {
 		return <Navigate to={"/profile"} />
 	}

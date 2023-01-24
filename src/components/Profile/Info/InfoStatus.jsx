@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "../Info/Info.module.css";
 
-const InfoStatusWithHooks = (props) => {
+const InfoStatus = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
 
@@ -10,7 +10,7 @@ const InfoStatusWithHooks = (props) => {
   }, [props.status]);
 
   const activateEditMode = () => {
-    setEditMode(true);
+	setEditMode(true);
   };
 
   const deactivateEditMode = () => {
@@ -25,8 +25,8 @@ const InfoStatusWithHooks = (props) => {
   return (
     <div className={style.mystatus}>
       {!editMode && (
-        <div>
-          <h3 onClick={activateEditMode}>
+			<div>
+		  <h3 onClick={props.isOwner && activateEditMode}>
             {props.status || "Just keep swimming"}
           </h3>
         </div>
@@ -45,4 +45,4 @@ const InfoStatusWithHooks = (props) => {
   );
 };
 
-export default InfoStatusWithHooks;
+export default InfoStatus;
