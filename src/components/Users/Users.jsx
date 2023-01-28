@@ -3,26 +3,25 @@ import style from "./Users.module.css"
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 
-class Users extends React.Component{
+const Users = (props) => {
 
-	render() {
+
 		return (
 			
       <div className={style.users}>
 			<Paginator 
-				currentPage = {this.props.currentPage}
-				onPageChanged = {this.props.onPageChanged}
-				totalItemsCount = {this.props.totalItemsCount}
-				pageSize = {this.props.pageSize}
+				currentPage = {props.currentPage}
+				onPageChanged = {props.onPageChanged}
+				totalItemsCount = {props.totalItemsCount}
+				pageSize = {props.pageSize}
 			/>
-			<User users = {this.props.users}
-				followingInProgress = {this.props.followingInProgress}
-				unFollow = {this.props.unFollow}
-				follow = {this.props.follow}
+			<User users = {props.users}
+				followingInProgress = {props.followingInProgress}
+				unFollow = {props.unFollow}
+				follow = {props.follow}
 			/>
       </div>
-    );
-	}
-} 
+   );
+}
 
 export default Users;

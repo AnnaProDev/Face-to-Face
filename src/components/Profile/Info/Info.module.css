@@ -85,6 +85,7 @@ label.input_file {
 	width: 100px;
 	height: 34px;
 	margin: 0;
+	font-size: 13px;
 }
 
 .text_wrapper {
@@ -96,12 +97,12 @@ label.input_file {
 }
 
 .text_wrapper div {
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .text_wrapper span {
 	color: #6B757D;
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .text_wrapper input {

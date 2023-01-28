@@ -37,7 +37,7 @@ export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
 		  <span className="material-symbols-outlined">computer</span>
 		  <div> My skills: </div>
           {profile.lookingForAJobDescription ||
-            "JavaScript, React.JS"}
+            "https://annakondr.su"}
         </div>
         {/* <div>
           Contacts:{" "}

@@ -1,5 +1,6 @@
 import style from "./Navbar.module.css"
 import {NavLink} from "react-router-dom"
+import logo from "../../img/1646808.png"
 
 const Navbar = () => {
 	return (
@@ -7,7 +8,7 @@ const Navbar = () => {
       <div className={style.logo}>
         <img
           alt="logo"
-          src="https://cdn-icons-png.flaticon.com/512/1646/1646808.png"
+          src={logo}
         ></img>
       </div>
       <div className={style.link}>

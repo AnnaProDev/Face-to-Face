@@ -3,11 +3,11 @@ import style from "./Users.module.css";
 import userIcon from "../../img/user_icon.png";
 import { NavLink } from "react-router-dom";
 
-class User extends React.Component {
-  render() {
+const User = (props) => {
+
     return (
       <div>
-        {this.props.users.map((user) => (
+        {props.users.map((user) => (
           <div className={style.wrapper} key={user.id}>
             <div className={style.icon}>
               <NavLink to={"/profile/" + user.id}>
@@ -19,11 +19,11 @@ class User extends React.Component {
               {user.followed ? (
                 <button
                   className={style.button}
-                  disabled={this.props.followingInProgress.some(
+                  disabled={props.followingInProgress.some(
                     (id) => id === user.id
                   )}
                   onClick={() => {
-                    this.props.unFollow(user.id);
+                    props.unFollow(user.id);
                   }}
                 >
                   Following{" "}
@@ -31,11 +31,11 @@ class User extends React.Component {
               ) : (
                 <button
                   className={style.fbutton}
-                  disabled={this.props.followingInProgress.some(
+                  disabled={props.followingInProgress.some(
                     (id) => id === user.id
                   )}
                   onClick={() => {
-                    this.props.follow(user.id);
+                    props.follow(user.id);
                   }}
                 >
                   + Follow{" "}
@@ -57,6 +57,5 @@ class User extends React.Component {
       </div>
     );
   }
-}
 
 export default User;
