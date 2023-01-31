@@ -12,7 +12,9 @@ Used HTML5, React.js, Redux.js and JavaScript to develop the page
 Used the API
 
 <h2>How to Log in</h2>
-
+For testing social network use the following email and password:<br>
+Email: free@samuraijs.com <br>
+Password: free <br>
 
 <h2>How to use Profile page</h2>
 
