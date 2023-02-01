@@ -1,4 +1,5 @@
 import {usersAPI} from "../API/api"
+import { UserType } from "../types/types";
 import { updateObjectInArray } from "../utils/objects-helpers";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW  = "UNFOLLOW";
@@ -9,20 +10,17 @@ const TOGGLE_IS_FETCHING = "TOGGLE_IS _FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 const initialState = {
-	users: [
-		// {id: 1, following: false, photoUser: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS87Gr4eFO7Pt2pE8oym4dxXnxGZYL2Pl_N5A&usqp=CAU", fullName: "Andrey", status: "I'm boss", location: {city: "Charlotte", country: "USA"}},
-		// {id: 2, following: true, photoUser: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh-C6XlLDyom3ZA-YU98RZsMIx50qwU8xzlmtiK261de3VveBy0QBgOsFNac3Yb69WsBU&usqp=CAU", fullName: "Mark", status: "Bring the best of your authentic self to every opportunity.", location: {city: "Ekaterinburg", country: "Russia"}},
-		// {id: 3, following: false, photoUser: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwsUeMCO-OWwtei37A6FYy6QFCb1m_2XD5EiACkcJaBjk7_Du5owYUs7nwDI2KOpGAEw4&usqp=CAU", fullName: "Anna", status: "Stay hungry, stay foolish.", location: {city: "Tokyo", country: "Japan"}},
-		// {id: 4, following: true, photoUser: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Luglga9J2R3Bxt_PsWZISUHQWODD6_ZTAJ5mIQgxYCAE-YbkY81faTqp-hSA_jVPTs&usqp=CAU", fullName: "Helen", status: "Clarity trumps persuasion", location: {city: "Deli", country: "India"}},
-	],
+	users: [] as Array<UserType>,
 	pageSize: 10,
 	totalItemsCount: 0,
 	currentPage: 1,
 	isFetching: true,
-	followingInProgress: [],
+	followingInProgress: [] as Array<number>, //array of usersId
 };
 
-const usersReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState;
+
+const usersReducer = (state = initialState, action: any): InitialStateType => {
 
 	switch (action.type) {
 		case FOLLOW: 
@@ -60,16 +58,45 @@ const usersReducer = (state = initialState, action) => {
 	}
 };
 
-export const followSuccess = (userId) => ({type: FOLLOW, userId});
-export const unFollowSuccess = (userId) => ({type: UNFOLLOW, userId	});
-export const setUsers = (users) => ({type: SET_USERS, users});
-export const setUsersPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const setTotalUsersCount = (totalItemsCount) => ({type: SET_TOTAL_USERS_COUNT, totalItemsCount});
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
+type followSuccessActionType = {
+	type: typeof FOLLOW 
+	userId: number
+}
+export const followSuccess = (userId: number): followSuccessActionType => ({type: FOLLOW, userId});
+type unFollowSuccessActionType = {
+	type: typeof UNFOLLOW 
+	userId: number
+}
+export const unFollowSuccess = (userId: number):unFollowSuccessActionType => ({type: UNFOLLOW, userId});
+type setUsersActionType = {
+	type: typeof SET_USERS 
+	users: Array<UserType>
+}
+export const setUsers = (users: Array<UserType>): setUsersActionType => ({type: SET_USERS, users});
+type setUsersPageActionType = {
+	type: typeof SET_CURRENT_PAGE 
+	currentPage: number
+}
+export const setUsersPage = (currentPage: number): setUsersPageActionType => ({type: SET_CURRENT_PAGE, currentPage});
+type setTotalUsersCountActionType = {
+	type: typeof SET_TOTAL_USERS_COUNT 
+	totalItemsCount: number
+}
+export const setTotalUsersCount = (totalItemsCount: number): setTotalUsersCountActionType => ({type: SET_TOTAL_USERS_COUNT, totalItemsCount});
+type toggleIsFetchingActionType = {
+	type: typeof TOGGLE_IS_FETCHING 
+	isFetching: boolean
+}
+export const toggleIsFetching = (isFetching: boolean): toggleIsFetchingActionType => ({type: TOGGLE_IS_FETCHING, isFetching});
+type toggleFollowingProgressActionType = {
+	type: typeof TOGGLE_IS_FOLLOWING_PROGRESS
+	isFetching: boolean
+	userId: number
+}
+export const toggleFollowingProgress = (isFetching: boolean, userId: number): toggleFollowingProgressActionType => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
 
-export const getUsers = (page, pageSize) => {
-	return async (dispatch) => {
+export const getUsers = (page: number, pageSize: number) => {
+	return async (dispatch: any) => {
 	dispatch(toggleIsFetching(true));
 	dispatch(setUsersPage(page))
 		const data = await usersAPI.getUsers(page, pageSize);
@@ -79,7 +106,7 @@ export const getUsers = (page, pageSize) => {
 	}
 };
 
-const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
+const followUnfollowFlow = async (dispatch: any, userId: number, apiMethod: any, actionCreator: any) => {
 	dispatch(toggleFollowingProgress(true, userId));
 	let response = await apiMethod(userId)
 		if (response.data.resultCode === 0) {
@@ -88,15 +115,15 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
 		dispatch(toggleFollowingProgress(false, userId));
 }
 
-export const follow = (userId) => {
-	return async (dispatch) => {
+export const follow = (userId: number) => {
+	return async (dispatch: any) => {
 		const apiMethod = usersAPI.follow.bind(usersAPI);
 		followUnfollowFlow(dispatch, userId, apiMethod, followSuccess);
 	}
 };
 
-export const unFollow = (userId) => {
-	return async (dispatch) => {
+export const unFollow = (userId: number) => {
+	return async (dispatch: any) => {
 		const apiMethod = usersAPI.unFollow.bind(usersAPI);
 		followUnfollowFlow(dispatch, userId, apiMethod, unFollowSuccess);
 	}

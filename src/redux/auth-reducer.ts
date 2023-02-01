@@ -4,21 +4,23 @@ import { authAPI, securityAPI } from "../API/api";
 const SET_USER_DATA = "samurai-network/auth/SET_USER_DATA ";
 const GET_CAPTCHA_URL_SUCCESS = "samurai-network/auth/GET_CAPTCHA_URL_SUCCESS"
 
-export type InitialStateType = {
-	id: number | null,
-	email: string | null,
-	login: string | null,
-	isAuth: boolean,
-	captchaUrl: string | null,
-}
+// export type InitialStateType2 = {
+// 	id: number | null,
+// 	email: string | null,
+// 	login: string | null,
+// 	isAuth: boolean,
+// 	captchaUrl: string | null,
+// }
 
-const initialState: InitialStateType = {
-  id: null,
-  email: null,
-  login: null,
-  isAuth: false,
-  captchaUrl: null, //if null, then captcha is not required
+const initialState = {
+  id: null as number | null,
+  email: null as string | null,
+  login: null as string | null,
+  isAuth: false as boolean,
+  captchaUrl: null as string | null, //if null, then captcha is not required
 };
+
+export type InitialStateType = typeof initialState
 
 const authReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
