@@ -1,9 +1,11 @@
 import style from "../Dialogs.module.css";
 import {NavLink} from "react-router-dom";
 
-const DialogItem = (props) => {
+
+
+const DialogItem = (id:number, name: string) => {
 	return <div className={style.item}>
-	<NavLink to={"dialog/1" + props.id}>{props.name}</NavLink>
+	<NavLink to={"dialog/1" + id}>{name}</NavLink>
  </div>
 }
 

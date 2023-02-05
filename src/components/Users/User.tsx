@@ -2,12 +2,20 @@ import React from "react";
 import style from "./Users.module.css";
 import userIcon from "../../img/user_icon.png";
 import { NavLink } from "react-router-dom";
+import { UserType } from "../../types/types";
 
-const User = (props) => {
+type PropsType = {
+	users: Array<UserType>
+	followingInProgress: Array<number>,
+	unFollow: (userId: number) => void,
+	follow: (userId: number) => void,
+}
+
+const User: React.FC<PropsType> = ({users, followingInProgress, follow, unFollow}) => {
 
     return (
       <div>
-        {props.users.map((user) => (
+        {users.map((user) => (
           <div className={style.wrapper} key={user.id}>
             <div className={style.icon}>
               <NavLink to={"/profile/" + user.id}>
@@ -19,11 +27,11 @@ const User = (props) => {
               {user.followed ? (
                 <button
                   className={style.button}
-                  disabled={props.followingInProgress.some(
-                    (id) => id === user.id
+                  disabled={followingInProgress.some(
+                    (id: number) => id === user.id
                   )}
                   onClick={() => {
-                    props.unFollow(user.id);
+                    unFollow(user.id);
                   }}
                 >
                   Following{" "}
@@ -31,11 +39,11 @@ const User = (props) => {
               ) : (
                 <button
                   className={style.fbutton}
-                  disabled={props.followingInProgress.some(
-                    (id) => id === user.id
+                  disabled={followingInProgress.some(
+                    (id: number) => id === user.id
                   )}
                   onClick={() => {
-                    props.follow(user.id);
+                    follow(user.id);
                   }}
                 >
                   + Follow{" "}
