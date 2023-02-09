@@ -8,7 +8,7 @@ const SET_USER_STATUS = "SET_USER_STATUS";
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
 
 
-type ProfileType = {
+export type ProfileType = {
 	userId: number,
 	lookingForAJob: string,
 	lookingForAJobDescription: boolean,
