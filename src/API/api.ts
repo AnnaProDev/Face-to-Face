@@ -66,6 +66,7 @@ type LoginResponseType = {
 	messages: Array<string>
 }
 
+
 export const authAPI = {
 	me() {
 		return instance.get<MeResponseType>(`auth/me`)
