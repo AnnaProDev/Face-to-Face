@@ -4,14 +4,6 @@ import { authAPI, ResultCodeForCaptcha, ResultCodesEnum, securityAPI } from "../
 const SET_USER_DATA = "samurai-network/auth/SET_USER_DATA ";
 const GET_CAPTCHA_URL_SUCCESS = "samurai-network/auth/GET_CAPTCHA_URL_SUCCESS"
 
-// export type InitialStateType2 = {
-// 	id: number | null,
-// 	email: string | null,
-// 	login: string | null,
-// 	isAuth: boolean,
-// 	captchaUrl: string | null,
-// }
-
 const initialState = {
   id: null as number | null,
   email: null as string | null,
