@@ -31,7 +31,7 @@ Find the application runnning => https://www.facetoface.annakondr.su
 <br>
 <h3>Profile page</h3>
 
-![image](https://user-images.githubusercontent.com/85047120/212369171-210ef7c6-1e1c-4f36-870f-afd1bc5273e8.jpg)
+![image](https://user-images.githubusercontent.com/85047120/222873016-282bf716-9659-41d1-8acb-0b16dc290634.png)
 
 <h3>Message page</h3>
 
