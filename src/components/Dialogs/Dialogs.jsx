@@ -1,7 +1,6 @@
 import style from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import React from "react";
 import SendMessageContainer from "./SendMessage/SendMessageContainer";
 // import { Navigate } from "react-router-dom";
 
