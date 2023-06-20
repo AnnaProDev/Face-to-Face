@@ -5,6 +5,7 @@
 Face-to-Face is a social networking web application that aims to connect people from around the world in a user-friendly and interactive environment. This project provides a platform where users can create profiles, connect with friends, share updates, and engage in conversations through messages.
 
 <h4>Why is ReactJS?<h4>
+  
 In building a social network, there are many different components that need to be designed and built, such as profiles, feeds, posts, comments, and more. By using ReactJS, each of these components can be isolated and developed independently, which makes it easier to manage and maintain the project over time.<br>
 In conclusion, ReactJS is a good choice for building a front-end software project for a social network because of its ability to break down a user interface into reusable components, handle real-time updates, and be supported by a large and active community of developers
 
@@ -12,6 +13,7 @@ In conclusion, ReactJS is a good choice for building a front-end software projec
 Used React.js , Redux.js,  HTML5, JavaScript and TypeScript for page development
 
 <h2>Used API</h2>
+
 **Placeholder API:**  The Placeholder API is used for generating placeholder data for user profiles, status updates, and messages. It provides a convenient way to simulate real data and populate the application during development and testing.
 
 <h2>How to Log in</h2>
