@@ -25,9 +25,11 @@ const initialState = {
 		{id: 4, name: "Amaliya",},
 		{id: 5, name: "Olga",},
 	] as Array<DialogType>,
+	newMessageBody: ''
 };
+
 export const actions = {
-	addMessageActionCreator: (newMessageBody: string) => ({type: "SN/DIALOGS/ADD-MESSAGE", newMessageBody} as const)
+	addMessage: (newMessageBody: string) => ({type: "SN/DIALOGS/ADD-MESSAGE", newMessageBody} as const)
 };
 
 const dialogsReducer = (state = initialState, action: ActionsType): InitialStateType => {

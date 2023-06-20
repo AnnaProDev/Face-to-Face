@@ -2,9 +2,15 @@ import style from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import SendMessageContainer from "./SendMessage/SendMessageContainer";
+import React from "react";
+import { InitialStateType } from "../../redux/dialogs-reducer";
 // import { Navigate } from "react-router-dom";
 
-const Dialogs = (props) => {
+type PropsType = {
+	dialogsPage: InitialStateType
+}
+
+const Dialogs: React.FC<PropsType> = (props) => {
 
 	const state = props.dialogsPage;
 
@@ -15,8 +21,6 @@ const Dialogs = (props) => {
 	const messagesElements = state.dialogsMessages.map(
     (message) => (message = <Message key={message.id} text={message.text} id={message.id} />)
   );
-
-//   if (!props.isAuth) return <Navigate to={"/login"} />;
 
 	return ( 
 	<div className={style.wrapper}>

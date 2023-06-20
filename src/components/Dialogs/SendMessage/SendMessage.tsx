@@ -1,10 +1,26 @@
-import { Field, reduxForm } from "redux-form";
+import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import style from "../Dialogs.module.css";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 import { required, maxLength } from "../../../utils/validators";
 
-const SendMessage = (props) => {
-	const addNewMessage = (values) => {
+type NewMessageFormType = {
+	newMessageBody: string,
+}
+
+type NewMessageFormValuesType = {
+	newMessageBody: string
+	component: string,
+	name: string,
+	type: string,
+	placeholder: string,
+	validate: string,
+	className: string
+}
+
+type PropsType = {};
+
+const SendMessage = (props: any) => {
+	const addNewMessage = (values: NewMessageFormType) => {
 		props.onAddMessage(values.newMessageBody)
 	}
 	return <AddMessageFormRedux onSubmit={addNewMessage}/>
@@ -12,7 +28,8 @@ const SendMessage = (props) => {
 
 const maxLength50 = maxLength(50)
 
-const AddMessageForm = (props) => {
+const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormValuesType, PropsType> & PropsType>  
+= (props) => {
 
   return (
     <form className={style.message_form} onSubmit={props.handleSubmit}>
@@ -31,7 +48,7 @@ const AddMessageForm = (props) => {
   );
 };
 
-const AddMessageFormRedux = reduxForm({ form: "dialogSendMessageForm" })(
+const AddMessageFormRedux = reduxForm<NewMessageFormValuesType>({ form: "dialogSendMessageForm" })(
   AddMessageForm
 );
 

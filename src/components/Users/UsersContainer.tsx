@@ -79,6 +79,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
   };
 };
 
-export default compose<React.Component>(
-connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
+export default compose<React.ComponentType>(
+connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>
+(mapStateToProps, {
 	follow, unFollow,	getUsers,}))(UsersContainer);
