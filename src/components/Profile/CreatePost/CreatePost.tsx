@@ -1,17 +1,27 @@
-import { Field, reduxForm } from "redux-form";
+import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import style from "../Profile.module.css";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
-const CreatePost = (props) => {
+type CreatePostPropsType = {
+	AddPost: (newPostText: string) => void
+}
 
-const addNewPost = (values) => {
+const CreatePost: React.FC<CreatePostPropsType> = (props) => {
+
+const addNewPost = (values: AddPostFormValuesType) => {
 	props.AddPost(values.newPostText)
 }
   return <CreatePostFormRedux onSubmit={addNewPost}/>;
 };
 
+type PropsType= {
+}
 
-const CreatePostForm = (props) => {
+export type AddPostFormValuesType = {
+	newPostText: string
+}
+
+const CreatePostForm: React.FC<InjectedFormProps<AddPostFormValuesType, PropsType> & PropsType> = (props) => {
 
 	return <form className={style.post_form} onSubmit={props.handleSubmit}>
     <span className="material-symbols-outlined">account_circle</span>
@@ -26,6 +36,6 @@ const CreatePostForm = (props) => {
   </form>
 };
 
-const CreatePostFormRedux = reduxForm({form: "post"})(CreatePostForm)
+const CreatePostFormRedux = reduxForm<AddPostFormValuesType, PropsType>({form: "post"})(CreatePostForm)
 
 export default CreatePost;

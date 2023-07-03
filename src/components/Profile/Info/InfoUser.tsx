@@ -1,12 +1,19 @@
-import { reduxForm } from "redux-form";
+import { InjectedFormProps, reduxForm } from "redux-form";
 import {
   createField,
   Input,
   Textarea,
 } from "../../common/FormsControls/FormsControls";
 import style from "./Info.module.css";
+import { ProfileType } from "../../../redux/profile-reducer";
 
-export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
+type PropsType = {
+	profile: ProfileType
+	isOwner: boolean
+	goToEditMode: () => void
+}
+
+export const InfoUser: React.FC <PropsType> = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div className={style.profile}>
       <div className={style.text}>
@@ -57,7 +64,12 @@ export const InfoUser = ({ profile, isOwner, goToEditMode }) => {
   );
 };
 
-export const InfoUserForm = ({ handleSubmit, profile, error }) => {
+type InfoPropsType = {
+	profile: ProfileType
+}
+
+
+export const InfoUserForm: React.FC<InjectedFormProps<ProfileType, InfoPropsType> & InfoPropsType> = ({ handleSubmit, profile, error }) => {
   return (
     <form onSubmit={handleSubmit} className={style.profile}>
       <div className={style.text}>
@@ -73,7 +85,7 @@ export const InfoUserForm = ({ handleSubmit, profile, error }) => {
 		  {createField("About me", "aboutMe", [], Textarea)}
 		  </div>
         <div className={style.text_wrapper}>
-		  <span class="material-symbols-outlined">work</span>
+		  <span className="material-symbols-outlined">work</span>
           <div>Open for work:</div>
           {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
         </div>
@@ -103,7 +115,7 @@ export const InfoUserForm = ({ handleSubmit, profile, error }) => {
   );
 };
 
-const InfoUserReduxForm = reduxForm({ form: "edit-profile" })(InfoUserForm);
+const InfoUserReduxForm = reduxForm<ProfileType, InfoPropsType>({ form: "edit-profile" })(InfoUserForm);
 
 // const Contact = ({ contactTitle, contactValue }) => {
 //   return (

@@ -5,6 +5,26 @@ import {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile} from ".
 import {	useLocation, useNavigate,	useParams,} from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { AppStateType } from "../../redux/redux-store";
+
+type MapPropsType = ReturnType<typeof mapStateToProps>
+
+type DispatchPropsType = {
+	getUserProfile: () => void
+	getStatus: () => void
+	updateStatus: () => void
+	savePhoto: () => void
+	saveProfile: () => void
+}
+
+type PathParamsType = {
+	userId: string
+}
+
+type PropsType =  {
+	someString: string
+}
+
 
 export function withRouter(Component) {
 	function ComponentWithRouterProp(props) {
@@ -21,7 +41,7 @@ export function withRouter(Component) {
 	return ComponentWithRouterProp;
 }
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.Component<MapPropsType & DispatchPropsType> {
 
 	refreshProfile() {
 		let userId = this.props.router.params.userId;
@@ -59,7 +79,7 @@ class ProfileContainer extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType) => {
 	return {
 		profilePage: state.profilePage,
 		profile: state.profilePage.profile,

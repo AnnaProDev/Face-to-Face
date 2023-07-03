@@ -9,7 +9,8 @@ export type ProfileType = {
 	lookingForAJobDescription: boolean,
 	fullName: string,
 	contacts?: ContactsType,
-	photos: PhotosType
+	photos: PhotosType,
+	aboutMe: string
 }
 
 const initialState = {

@@ -2,6 +2,7 @@ import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import style from "../Dialogs.module.css";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 import { required, maxLength } from "../../../utils/validators";
+import React from "react";
 
 type NewMessageFormType = {
 	newMessageBody: string,
@@ -17,13 +18,17 @@ type NewMessageFormValuesType = {
 	className: string
 }
 
-type PropsType = {};
+type PropsType = {
+	onAddMessage: (newMessageBody: string) => void
+};
 
-const SendMessage = (props: any) => {
+const SendMessage: React.FC<PropsType> = (props) => {
 	const addNewMessage = (values: NewMessageFormType) => {
 		props.onAddMessage(values.newMessageBody)
 	}
-	return <AddMessageFormRedux onSubmit={addNewMessage}/>
+	return <AddMessageFormRedux onSubmit={addNewMessage} onAddMessage={function (newMessageBody: string): void {
+		throw new Error("Function not implemented.");
+	} }/>
 };
 
 const maxLength50 = maxLength(50)
@@ -48,8 +53,10 @@ const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormValuesType, Props
   );
 };
 
-const AddMessageFormRedux = reduxForm<NewMessageFormValuesType>({ form: "dialogSendMessageForm" })(
+const SendMessageMemorized = React.memo(SendMessage)
+
+const AddMessageFormRedux = reduxForm<NewMessageFormValuesType, PropsType>({ form: "dialogSendMessageForm" })(
   AddMessageForm
 );
 
-export default SendMessage;
+export default SendMessageMemorized;

@@ -12,7 +12,8 @@ In conclusion, ReactJS is a good choice for building a front-end software projec
 Used React.js , Redux.js,  HTML5, JavaScript and TypeScript for page development
 
 <h2>Used API</h2>
-**Placeholder API:**  The Placeholder API is used for generating placeholder data for user profiles, status updates, and messages. It provides a convenient way to simulate real data and populate the application during development and testing.
+
+ **Placeholder API:**  The Placeholder API is used for generating placeholder data for user profiles, status updates, and messages. It provides a convenient way to simulate real data and populate the application during development and testing.
 
 <h2>How to Log in</h2>
 For testing social network use the following email and password:<br>
