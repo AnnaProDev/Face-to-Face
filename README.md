@@ -34,7 +34,7 @@ Password: free <br>
 
 
 <h2>Check out the application</h2>
-Find the application running => https://www.facetoface.annakondr.su
+Find the application running => https://www.facetoface.annaprodev.com
 
 <h2>Contributing</h2>
 Contributions to Face-to-Face are welcome! If you encounter any bugs, have suggestions for new features, or would like to contribute in any other way, please feel free to open an issue or submit a pull request.
